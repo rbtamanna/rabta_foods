@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('frontend.frontendMaster')
 @section('page_css')
     <link rel="stylesheet" href="{{ asset('backend/js/datatables/dataTables.bootstrap.css') }}">
 @endsection
@@ -6,7 +6,7 @@
     <div class="panel panel-default">
         <div class="panel-heading">
             <div class="panel-title">
-                Categories
+                Contacts
             </div>
         </div>
         <div class="panel-body">
@@ -16,30 +16,36 @@
                 <table id="example-1" class="table table-striped table-bordered" cellspacing="0" width="100%">
                     <thead>
                     <tr>
-                        <th>Name</th>
+                        <th>Media</th>
+                        <th>URL</th>
+                        <th>Value</th>
                     </tr>
                     </thead>
 
                     <tfoot>
                     <tr>
-                        <th>Name</th>
+                        <th>Media</th>
+                        <th>URL</th>
+                        <th>Value</th>
                     </tr>
                     </tfoot>
 
-                    @if ($category)
+                    @if ($contact)
                         <tbody>
-                        @foreach($category as $categories)
+                        @foreach($contact as $contacts)
                             <tr>
-                                <td>{{ $categories->name }}</td>
+                                <td>{{ $contacts->media }}</td>
+                                <td>{{ $contacts->url }}</td>
+                                <td>{{ $contacts->value }}</td>
                                 <td>
-                                    <a href="{{ url('category/edit/'.$categories->id) }}"><button type="button" class="btn btn-blue">Edit</button></a>
-                                    <a href="{{ url('category/delete/'.$categories->id) }}"><button type="button" class="btn btn-danger">Delete</button></a>
+                                    <a href="{{ url('contact/edit/'.$contacts->id) }}"><button type="button" class="btn btn-blue">Edit</button></a>
+                                    <a href="{{ url('contact/delete/'.$contacts->id) }}"><button type="button" class="btn btn-danger">Delete</button></a>
                                 </td>
                             </tr>
                         @endforeach
                             <tr >
                                 <td >
-                                    <a href="{{ url('addCategory') }}"><button type="button" class="btn btn-blue "  >Add Category</button></a>
+                                    <a href="{{ url('addContact') }}"><button type="button" class="btn btn-blue "  >Add Category</button></a>
                                 </td>
                             </tr>    
                         </tbody>

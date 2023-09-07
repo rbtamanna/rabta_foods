@@ -7,11 +7,11 @@
             <!-- logo -->
             <div class="logo">
                 <a href="dashboard-1.html" class="logo-expanded">
-                    <img src="{{ asset('backend/images/rabta.jpg') }}" width="80" alt="" />
+                    <img src="{{ asset('backend/images/rabta2.jpg') }}" width="180" alt="" />
                 </a>
 
                 <a href="dashboard-1.html" class="logo-collapsed">
-                    <img src="{{ asset('backend/images/rbt.jpg') }}" width="40" alt="" />
+                    <img src="{{ asset('backend/images/rbt2.jpg') }}" width="40" alt="" />
                 </a>
             </div>
 
@@ -70,7 +70,7 @@
 
             <li class='active opened active'>
                 <a href="#">
-                        <i class="linecons-user"></i>
+                        <i class="linecons-food"></i>
                         <span class="title">Products</span>
                     </a>
                     <ul>
@@ -96,6 +96,34 @@
                             </a>
                         </li>
                         
+                    </ul>
+            </li>
+            <li class='active opened active'>
+                <a href="#">
+                        <i class="linecons-note"></i>
+                        <span class="title">Frontend</span>
+                    </a>
+                    <ul>
+                        <li>
+                            <a href="{{ url('about') }}">
+                                <span class="title">Existing About</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ url('edit_about') }}">
+                                <span class="title">Edit About</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ url('contact') }}">
+                                <span class="title">Existing Contact</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ url('manageContact') }}">
+                                <span class="title">Manage Contact</span>
+                            </a>
+                        </li>
                     </ul>
             </li>
         </ul>

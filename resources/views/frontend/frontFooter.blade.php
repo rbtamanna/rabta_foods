@@ -3,10 +3,10 @@
     <div class="footer-inner">
 
         <!-- Add your copyright text here -->
-        <div class="footer-text " >
-            &copy; 2014
-            <strong>Xenon</strong>
-            theme by <a href="http://laborator.co" target="_blank">Laborator</a>
+        <div class="footer-text ">
+            &copy; 2023
+            <strong>RABTA Foods</strong>
+             by <a href="https://rbtamanna.github.io/CSS-project-Personal-page/" target="_blank">Rabeya Bosri Tamanna</a>
         </div>
 
 

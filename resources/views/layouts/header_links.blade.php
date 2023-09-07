@@ -6,7 +6,7 @@
 <meta name="author" content="" />
 
 <title>RABTA</title>
-<link rel = "icon" href = "{{ asset('backend/images/rbt.jpg') }}" type = "image/x-icon">
+<link rel = "icon" href = "{{ asset('backend/images/rbt3.jpg') }}" type = "image/x-icon">
 
 <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Arimo:400,700,400italic">
 <link rel="stylesheet" href="{{ asset('backend/css/fonts/linecons/css/linecons.css') }}">
@@ -23,7 +23,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.jquery.min.js"></script>
 <link href="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.min.css" rel="stylesheet"/>
-
 
 <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!--[if lt IE 9]>

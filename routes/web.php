@@ -56,4 +56,18 @@ Route::post('category/update/{id}', 'ProductController@updateCategory')->middlew
 
 Route::get('category/delete/{id}', 'ProductController@deleteCategory')->middleware('isLoggedIn'); 
 
-// Route::fallback(function () {return view('errors.404');})->name('errors.404');
+Route::get('about', 'FrontendController@viewAbout');
+Route::get('contact', 'FrontendController@viewContact');
+
+Route::get('manageContact', 'FrontendController@manageContact')->middleware('isLoggedIn');
+
+Route::get('addContact', 'FrontendController@addContact')->middleware('isLoggedIn');
+Route::post('addContact', 'FrontendController@storeContact')->middleware('isLoggedIn');
+
+Route::get('contact/edit/{id}', 'FrontendController@editContact')->middleware('isLoggedIn');
+Route::post('contact/update/{id}', 'FrontendController@updateContact')->middleware('isLoggedIn');
+Route::get('contact/delete/{id}', 'FrontendController@deleteContact')->middleware('isLoggedIn'); 
+
+Route::get('menu', 'FrontendController@viewMenuList');
+Route::get('menu/category/{id}', 'FrontendController@viewMenu');
+// Route::post('addCategory', 'ProductController@storeCategory');

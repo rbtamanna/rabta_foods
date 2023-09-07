@@ -21,6 +21,7 @@
                         <th>Price</th>
                         <th>Category</th>
                         <th>Image</th>
+                        
                     </tr>
                     </thead>
 
@@ -31,6 +32,7 @@
                         <th>Price</th>
                         <th>Category</th>
                         <th>Image</th>
+                       
                     </tr>
                     </tfoot>
 
@@ -62,7 +64,7 @@
                                         <img src="{{ asset('storage/product/'.$product->image) }}" alt="" class="img-inline userpic-32" height="50px">
                                     </div>
                                 </td>
-                                <td>{{ $product->created_at }}</td>
+                                
                                 <td>
                                     <a href="{{ url('product/edit/'.$product->id) }}"><button type="button" class="btn btn-blue">Edit</button></a>
                                     <a href="{{ url('product/delete/'.$product->id) }}"><button type="button" class="btn btn-danger">Delete</button></a>
