@@ -81,17 +81,17 @@
             </div>
 
             <!-- Add class "fade-in-effect" for login form effect -->
-            <form action="{{ url('login') }}" method="post" role="form" id="login" class="login-form fade-in-effect">
+            <form action="{{ url('signin') }}" method="post" role="form" id="login" class="login-form fade-in-effect">
 
                 @csrf
 
                 <div class="login-header">
                     <a href="dashboard-1.html" class="logo">
                         <img src="{{url('backend/images/rabta3.jpg')}}" alt="" width="80" />
-                        <span>Admin log in</span>
+                        <span>log in</span>
                     </a>
 
-                    <p>Dear admin, log in to access the admin area!</p>
+                    <p>Dear customer, log in to access the admin area!</p>
                 </div>
 
 

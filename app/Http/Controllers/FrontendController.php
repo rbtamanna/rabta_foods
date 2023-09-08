@@ -134,4 +134,8 @@ class FrontendController extends Controller
         $category = Category::get();
         return view('frontend.viewMenuList', compact('products'), compact('category'));
     }
+    public function home()
+    {
+        return view('frontend.home');
+    }
 }

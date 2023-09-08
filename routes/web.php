@@ -70,4 +70,13 @@ Route::get('contact/delete/{id}', 'FrontendController@deleteContact')->middlewar
 
 Route::get('menu', 'FrontendController@viewMenuList');
 Route::get('menu/category/{id}', 'FrontendController@viewMenu');
+
+Route::get('registration', 'CustomerController@viewRegistration');
+Route::post('registration', 'CustomerController@store');
+
+Route::get('signin', 'CustomerController@viewSignin');
+Route::post('signin', 'CustomerController@signin');
+Route::get('signout', 'CustomerController@signout')->middleware('isCustomerLoggedIn'); 
+
+Route::get('cart', 'CustomerController@cartTable')->middleware('isCustomerLoggedIn'); 
 // Route::post('addCategory', 'ProductController@storeCategory');

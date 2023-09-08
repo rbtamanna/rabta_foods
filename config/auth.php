@@ -46,6 +46,10 @@ return [
             'provider' => 'users',
             'hash' => false,
         ],
+        'customer' => [
+            'driver' => 'session',
+            'provider' => 'customer', // Use the correct provider name for the "web" guard
+        ],
     ],
 
     /*
@@ -70,13 +74,17 @@ return [
             'driver' => 'eloquent',
             'model' => App\User::class,
         ],
+        'customer' => [
+            'driver' => 'eloquent',
+            'model' => App\Customer::class,
+        ],
 
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',
         // ],
     ],
-
+    
     /*
     |--------------------------------------------------------------------------
     | Resetting Passwords
@@ -96,6 +104,12 @@ return [
         'users' => [
             'provider' => 'users',
             'table' => 'password_resets',
+            'expire' => 60,
+            'throttle' => 60,
+        ],
+        'customer' => [
+            'provider' => 'customer',
+            'table' => 'customer_password_resets',
             'expire' => 60,
             'throttle' => 60,
         ],

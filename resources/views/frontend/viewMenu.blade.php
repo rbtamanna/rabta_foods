@@ -11,8 +11,9 @@
     </style>
 @endsection
 @section('contents')
+
+    <div class="grid-container ">
     
-    <div class="grid-container">
         @foreach($products as $product)
             <div class="card" style="width: 18rem;">
                 <img src="{{ asset('storage/product/'.$product->image) }}"  alt="..." height=200px width="300">
