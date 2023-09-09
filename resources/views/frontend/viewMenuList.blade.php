@@ -14,7 +14,7 @@
 @section('contents')
     <div class="grid-container">
         @foreach($category as $categories)
-            <h2 ><a style="color: #2c2e2f" href="{{url('menu/category/'.$categories->id)}}" target="_blank">{{$categories->name}}</a></h2>
+            <h2 ><a style="color: #2c2e2f" href="{{url('menu/category/'.$categories->id)}}" target="_blank"><i class="fa-square-o"></i> {{  $categories->name}}</a></h2>
         @endforeach
     </div>
     

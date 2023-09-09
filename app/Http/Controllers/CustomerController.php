@@ -72,6 +72,7 @@ class CustomerController extends Controller
     public function signout()
     {
         \request()->session()->flush();
+        Cart::truncate();
         return redirect('signin');
     }
     public function cartTable()

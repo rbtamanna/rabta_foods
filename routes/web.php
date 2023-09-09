@@ -101,4 +101,4 @@ Route::post('addAbout', 'FrontendController@storeAbout')->middleware('isLoggedIn
 
 Route::get('about/edit/{id}', 'FrontendController@editAbout')->middleware('isLoggedIn');
 Route::post('about/update/{id}', 'FrontendController@updateAbout')->middleware('isLoggedIn');
-Route::get('about/delete/{id}', 'FrontendController@deleteAbout')->middleware('isLoggedIn'); 
+Route::get('about/delete/{id}', 'FrontendController@deleteAbout')->middleware('isLoggedIn');
