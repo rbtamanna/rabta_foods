@@ -91,5 +91,21 @@ class OrderController extends Controller
             return view('customer.notAdded');
         }
     }
+    public function history()
+    {
+       
+        $code=Order::distinct()->pluck('code');
+        $customer_id=[];
+        $total=[];
+        $status=[];
+        foreach($code as $i)
+        {
+            $total[]=Order::where('code',$i)->sum('total_price');
+            $customer_id[]=Order::where('code',$i)->pluck('customer_id')->first();
+            $status[]=Order::where('code',$i)->pluck('status')->first();
+        }
+        // dd($customer_id);
+        return view('backend.history',compact('code','total','customer_id','status'));
+    }
 
 }

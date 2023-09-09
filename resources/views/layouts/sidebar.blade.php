@@ -138,7 +138,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="{{ url('users') }}">
+                            <a href="{{ url('history') }}">
                                 <span class="title">Order History</span>
                             </a>
                         </li>
