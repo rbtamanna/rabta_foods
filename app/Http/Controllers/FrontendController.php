@@ -8,12 +8,16 @@ use Illuminate\Support\Facades\DB;
 use App\Category;
 use App\Product;
 use App\Products_category;
+use App\About;
+use App\Http\Requests\AboutRequest;
 
 class FrontendController extends Controller
 {
     public function viewAbout()
     {
-        return view('frontend.about');
+        $about=About::orderBy('preference', 'asc')->get();
+        // dd($about);
+        return view('frontend.about',compact('about'));
     }
     public function viewContact()
     {
@@ -114,7 +118,7 @@ class FrontendController extends Controller
     public function deleteContact(int $id)
     {
         $contact = DB::table('contacts')->where('id', $id)->delete();
-        return redirect('manageContact')->with('success', 'category deleted');
+        return redirect('manageContact')->with('success', 'Contact deleted');
     }
     public function viewMenu(int $id)
     {
@@ -137,5 +141,47 @@ class FrontendController extends Controller
     public function home()
     {
         return view('frontend.home');
+    } 
+    public function manageAbout()
+    {
+        $about = About::get();
+        return view('backend.indexAbout', compact('about'));
+    }
+    public function addAbout()
+    {
+        return view('backend.addAbout');
+    }
+    public function storeAbout(AboutRequest $request)
+    {
+          if (DB::table('abouts')->insert([
+                'heading' => $request->heading,
+                'paragraph' => $request->paragraph,
+                'preference' => $request->preference,
+            ]) ){
+                return redirect('manageAbout')->with('success', 'Contact added');
+            } else {
+                return redirect()->back()->with('errors', 'Contact not added');
+            }
+       
+    }
+    public function editAbout(int $id)
+    {
+        $about = About::findOrFail( $id);
+        $about = About::where('id', $id)->first();
+        return view('backend.editAbout', compact('about'));
+    }
+    public function updateAbout($id, AboutRequest $request)
+    {
+            DB::table('abouts')->where('id', $id)->update([
+                'heading' => $request->heading,
+                'paragraph' => $request->paragraph,
+                'preference' => $request->preference,
+            ]) ;
+            return redirect('manageAbout')->with('success', 'About added');
+    }
+    public function deleteAbout(int $id)
+    {
+        $about = DB::table('abouts')->where('id', $id)->delete();
+        return redirect('manageAbout')->with('success', 'About deleted');
     }
 }

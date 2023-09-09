@@ -275,6 +275,13 @@
 					</a>
 					
 				</li>
+				<li>
+					<a href="{{url('status')}}">
+						<i class="fa-spinner"></i>
+						<span class="title">Status</span>
+					</a>
+					
+				</li>
 			</ul>
 					
 			

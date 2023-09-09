@@ -49,7 +49,7 @@
                 </a>
             </li>
                 
-            <li class='active opened active'>
+            <li class='active  active'>
                 <a href="#">
                         <i class="linecons-user"></i>
                         <span class="title">Users</span>
@@ -68,7 +68,7 @@
                     </ul>
             </li>
 
-            <li class='active opened active'>
+            <li class='active  active'>
                 <a href="#">
                         <i class="linecons-food"></i>
                         <span class="title">Products</span>
@@ -98,7 +98,7 @@
                         
                     </ul>
             </li>
-            <li class='active opened active'>
+            <li class='active  active'>
                 <a href="#">
                         <i class="linecons-note"></i>
                         <span class="title">Frontend</span>
@@ -110,8 +110,8 @@
                             </a>
                         </li>
                         <li>
-                            <a href="{{ url('edit_about') }}">
-                                <span class="title">Edit About</span>
+                            <a href="{{ url('manageAbout') }}">
+                                <span class="title">Manage About</span>
                             </a>
                         </li>
                         <li>
@@ -122,6 +122,24 @@
                         <li>
                             <a href="{{ url('manageContact') }}">
                                 <span class="title">Manage Contact</span>
+                            </a>
+                        </li>
+                    </ul>
+            </li>
+            <li class='active  active'>
+                <a href="#">
+                        <i class="fa-shopping-cart"></i>
+                        <span class="title">Orders</span>
+                    </a>
+                    <ul>
+                        <li>
+                            <a href="{{ url('manageOrderStatus') }}">
+                                <span class="title">Update status</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ url('users') }}">
+                                <span class="title">Order History</span>
                             </a>
                         </li>
                     </ul>

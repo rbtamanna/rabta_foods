@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('frontend.frontendMaster')
 @section('page_css')
     <link rel="stylesheet" href="{{ asset('backend/js/datatables/dataTables.bootstrap.css') }}">
 @endsection
@@ -6,7 +6,7 @@
     <div class="panel panel-default">
         <div class="panel-heading">
             <div class="panel-title">
-                Users
+                Order Details of - {{$code}} , {{$orders[0]->status}}
             </div>
         </div>
         <div class="panel-body">
@@ -16,41 +16,44 @@
                 <table id="example-1" class="table table-striped table-bordered" cellspacing="0" width="100%">
                     <thead>
                     <tr>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Image</th>
-                        <th>Created At</th>
-                        <th>Action</th>
+                        <th>Produc Name</th>
+                        <th>Product Quantity</th>
+                        <th>Per Product Price</th>
+                        <th>Total Price</th>
+                        
                     </tr>
                     </thead>
 
                     <tfoot>
                     <tr>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Image</th>
-                        <th>Created At</th>
-                        <th>Action</th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <?php
+                        $sum=0;
+                            foreach ($orders as $i => $order)
+                                $sum+=$order->price * $order->quantity 
+                            
+                        ?>
+                        <th>{{$sum}}</th>
+                        
                     </tr>
                     </tfoot>
 
-                    @if ($users)
+                    @if ($orders)
                         <tbody>
-                        @foreach($users as $user)
-                            <tr>
-                                <td>{{ $user->name }}</td>
-                                <td>{{ $user->email }}</td>
-                                <td><div class="user-profile">
-                                        <img src="{{ asset('storage/user/'.$user->image) }}" alt="" class="img-circle img-inline userpic-32" height="50px">
-                                    </div>
-                                </td>
-                                <td>{{ $user->created_at }}</td>
-                                <td>
-                                    <a href="{{ url('user/edit/'.$user->id) }}"><button type="button" class="btn btn-blue"><i class="fa-edit"></i></button></a>
-                                    <a href="{{ url('user/delete/'.$user->id) }}"><button type="button" class="btn btn-danger"><i class="fa-trash"></i></button></a>
-                                </td>
-                            </tr>
+                            
+                        @foreach ($orders as $i => $order)
+                            
+                                <tr>
+                                    <td>{{ $names[$i] }}</td>
+                                    <td>{{ $order->quantity }}</td>
+                                    <td>{{ $order->price }}</td>
+                                    <td>{{ $order->price * $order->quantity }}</td>
+                                </tr>
+                           
                         @endforeach
+
                         </tbody>
                     @endif
                 </table>

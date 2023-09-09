@@ -13,7 +13,14 @@ class Customer extends Authenticatable
         'name', 'email', 'phone', 'address', 'password',
     ];
     use Notifiable;
-
+    public function products()
+    {
+        return $this->belongsToMany(Product::class);
+    }
+    public function order()
+    {
+        return $this->belongsToMany(Order::class);
+    }
     /**
      * The attributes that are mass assignable.
      *

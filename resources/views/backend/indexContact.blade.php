@@ -1,4 +1,4 @@
-@extends('frontend.frontendMaster')
+@extends('layouts.master')
 @section('page_css')
     <link rel="stylesheet" href="{{ asset('backend/js/datatables/dataTables.bootstrap.css') }}">
 @endsection
@@ -38,14 +38,14 @@
                                 <td>{{ $contacts->url }}</td>
                                 <td>{{ $contacts->value }}</td>
                                 <td>
-                                    <a href="{{ url('contact/edit/'.$contacts->id) }}"><button type="button" class="btn btn-blue">Edit</button></a>
-                                    <a href="{{ url('contact/delete/'.$contacts->id) }}"><button type="button" class="btn btn-danger">Delete</button></a>
+                                    <a href="{{ url('contact/edit/'.$contacts->id) }}"><button type="button" class="btn btn-blue"><i class="fa-edit"></i></button></a>
+                                    <a href="{{ url('contact/delete/'.$contacts->id) }}"><button type="button" class="btn btn-danger"><i class="fa-trash"></i></button></a>
                                 </td>
                             </tr>
                         @endforeach
                             <tr >
                                 <td >
-                                    <a href="{{ url('addContact') }}"><button type="button" class="btn btn-blue "  >Add Category</button></a>
+                                    <a href="{{ url('addContact') }}"><button type="button" class="btn btn-blue "  ><i class="fa-plus-square"></i></button></a>
                                 </td>
                             </tr>    
                         </tbody>

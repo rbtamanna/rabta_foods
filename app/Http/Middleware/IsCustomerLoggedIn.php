@@ -17,8 +17,10 @@ class IsCustomerLoggedIn
      */
     public function handle($request, Closure $next)
     {
+      // dd(session('user_data'));
         if(!Auth::guard('customer')->check())
         {
+          
           return  redirect('signin');
         }
         return $next($request);

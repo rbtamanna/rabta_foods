@@ -6,7 +6,7 @@
     <div class="panel panel-default">
         <div class="panel-heading">
             <div class="panel-title">
-                Users
+                About
             </div>
         </div>
         <div class="panel-body">
@@ -16,41 +16,38 @@
                 <table id="example-1" class="table table-striped table-bordered" cellspacing="0" width="100%">
                     <thead>
                     <tr>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Image</th>
-                        <th>Created At</th>
-                        <th>Action</th>
+                        <th>Heading</th>
+                        <th>Paragraph</th>
+                        <th>Preference</th>
                     </tr>
                     </thead>
 
                     <tfoot>
                     <tr>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Image</th>
-                        <th>Created At</th>
-                        <th>Action</th>
+                        <th>Heading</th>
+                        <th>Paragraph</th>
+                        <th>Preference</th>
                     </tr>
                     </tfoot>
 
-                    @if ($users)
+                    @if ($about)
                         <tbody>
-                        @foreach($users as $user)
+                        @foreach($about as $abouts)
                             <tr>
-                                <td>{{ $user->name }}</td>
-                                <td>{{ $user->email }}</td>
-                                <td><div class="user-profile">
-                                        <img src="{{ asset('storage/user/'.$user->image) }}" alt="" class="img-circle img-inline userpic-32" height="50px">
-                                    </div>
-                                </td>
-                                <td>{{ $user->created_at }}</td>
+                                <td>{{ $abouts->heading }}</td>
+                                <td>{{ $abouts->paragraph }}</td>
+                                <td>{{ $abouts->preference }}</td>
                                 <td>
-                                    <a href="{{ url('user/edit/'.$user->id) }}"><button type="button" class="btn btn-blue"><i class="fa-edit"></i></button></a>
-                                    <a href="{{ url('user/delete/'.$user->id) }}"><button type="button" class="btn btn-danger"><i class="fa-trash"></i></button></a>
+                                    <a href="{{ url('about/edit/'.$abouts->id) }}"><button type="button" class="btn btn-blue"><i class="fa-edit"></i></button></a>
+                                    <a href="{{ url('about/delete/'.$abouts->id) }}"><button type="button" class="btn btn-danger"><i class="fa-trash"></i></button></a>
                                 </td>
                             </tr>
                         @endforeach
+                            <tr >
+                                <td >
+                                    <a href="{{ url('addAbout') }}"><button type="button" class="btn btn-blue "  ><i class="fa-plus-square"></i></button></a>
+                                </td>
+                            </tr>    
                         </tbody>
                     @endif
                 </table>

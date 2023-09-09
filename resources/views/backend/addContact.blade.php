@@ -1,4 +1,4 @@
-@extends('frontend.frontendMaster')
+@extends('layouts.master')
 @section('contents')
     <div class="panel panel-default">
         <div class="panel-heading">

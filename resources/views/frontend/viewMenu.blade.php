@@ -19,8 +19,8 @@
                 <img src="{{ asset('storage/product/'.$product->image) }}"  alt="..." height=200px width="300">
                 <div class="card-body" style="text-align:center; font-size:2rem">
                     <h3 class="card-title">{{$product->name}}</h3> 
-                    <p class="card-text" style="color:red">$ {{$product->price}}</p>
-                    <a href="#" class="btn btn-primary"
+                    <p class="card-text" style="color:red"><i class="fa-usd"></i> {{$product->price}}</p>
+                    <a href="{{ url('addToCart/'.$product->id) }}" class="btn btn-primary"
                     style="background-color: #f28dad; color: white; border-radius: 10px;" 
                     onmouseover="this.style.backgroundColor='gray'" 
                     onmouseout="this.style.backgroundColor='#f28dad'">Add to cart</a>

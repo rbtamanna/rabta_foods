@@ -11,19 +11,40 @@
         color: gray;
         margin: auto;
         width: 50%;
-        text-align: center;
+        text-align: justify;
         margin-bottom: 10px;
+    }
+    .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* Two equal-width columns */
+            gap: 10px; /* Adjust the gap between columns */
+            width: 100%; /* Optional: Set a specific width for the grid container */
+            margin:  auto; /* Optional: Center the grid container */
+        }
+         /* Define CSS classes for left and right grid items */
+    .left {
+        grid-column: 2; /* Place on the left side (first column) */
+    }
+    
+    .right {
+         /* Place on the right side (second column) */
+        grid-column: 1;
     }
 </style>
 @endsection
 @section('contents')
-<div class="profile-desc">
-    
-            <h1> RABTA Foods </h1>
-            <p>Assalamu Alaikum, My name is Rabeya Bosri Tamanna. Welcome to my 
-                RABTA Foods website which I developed for Appnap web deveopment 
-                training final project. This will showcase my skills and expertise 
-                that I’ve accumulated over training period. 
-            </p>
-</div>
+@foreach($about as $abouts)
+<br>
+    <div class="profile-desc grid-container">
+            
+                
+                    
+    <h1> {{$abouts->heading}} </h1><p>{{$abouts->paragraph}}</p><br>
+                        
+                  
+                
+            
+    </div>
+    @endforeach
+
 @endsection

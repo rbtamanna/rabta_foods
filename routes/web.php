@@ -79,4 +79,26 @@ Route::post('signin', 'CustomerController@signin');
 Route::get('signout', 'CustomerController@signout')->middleware('isCustomerLoggedIn'); 
 
 Route::get('cart', 'CustomerController@cartTable')->middleware('isCustomerLoggedIn'); 
-// Route::post('addCategory', 'ProductController@storeCategory');
+
+Route::get('addToCart/{id}', 'CustomerController@addToCart')->middleware('isCustomerLoggedIn'); 
+
+Route::post('cart/update/{id}', 'CustomerController@changeQuantity')->middleware('isCustomerLoggedIn');
+Route::get('checkout/{id}', 'CustomerController@checkout')->middleware('isCustomerLoggedIn');
+Route::post('checkout/{id}', 'CustomerController@orderConfirm')->middleware('isCustomerLoggedIn');
+
+Route::get('status', 'CustomerController@status')->middleware('isCustomerLoggedIn'); 
+Route::get('orderDetails/{code}','CustomerController@orderDetails')->middleware('isCustomerLoggedIn'); 
+
+Route::get('cart/delete/{id}', 'CustomerController@deleteFromCart')->middleware('isCustomerLoggedIn');
+
+Route::get('manageOrderStatus', 'OrderController@manageOrderStatus')->middleware('isLoggedIn');
+Route::match(['get', 'post'],'status/update/{code}', 'OrderController@statusUpdate')->middleware('isLoggedIn');
+
+Route::get('manageAbout', 'FrontendController@manageAbout')->middleware('isLoggedIn');
+
+Route::get('addAbout', 'FrontendController@addAbout')->middleware('isLoggedIn');
+Route::post('addAbout', 'FrontendController@storeAbout')->middleware('isLoggedIn');
+
+Route::get('about/edit/{id}', 'FrontendController@editAbout')->middleware('isLoggedIn');
+Route::post('about/update/{id}', 'FrontendController@updateAbout')->middleware('isLoggedIn');
+Route::get('about/delete/{id}', 'FrontendController@deleteAbout')->middleware('isLoggedIn'); 

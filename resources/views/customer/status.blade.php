@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('frontend.frontendMaster')
 @section('page_css')
     <link rel="stylesheet" href="{{ asset('backend/js/datatables/dataTables.bootstrap.css') }}">
 @endsection
@@ -6,7 +6,7 @@
     <div class="panel panel-default">
         <div class="panel-heading">
             <div class="panel-title">
-                Users
+                Cart Information
             </div>
         </div>
         <div class="panel-body">
@@ -16,41 +16,47 @@
                 <table id="example-1" class="table table-striped table-bordered" cellspacing="0" width="100%">
                     <thead>
                     <tr>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Image</th>
-                        <th>Created At</th>
-                        <th>Action</th>
+                        <th>Order Code</th>
+                        <th>Status</th>
+                        <th>Details of Order</th>
+                        
+                        
                     </tr>
                     </thead>
 
                     <tfoot>
                     <tr>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Image</th>
-                        <th>Created At</th>
-                        <th>Action</th>
+                        <th>Order Code</th>
+                        <th>Status</th>
+                        <th>Details of Order</th>
+                        
                     </tr>
                     </tfoot>
 
-                    @if ($users)
+                    @if ($codes)
                         <tbody>
-                        @foreach($users as $user)
-                            <tr>
-                                <td>{{ $user->name }}</td>
-                                <td>{{ $user->email }}</td>
-                                <td><div class="user-profile">
-                                        <img src="{{ asset('storage/user/'.$user->image) }}" alt="" class="img-circle img-inline userpic-32" height="50px">
-                                    </div>
-                                </td>
-                                <td>{{ $user->created_at }}</td>
-                                <td>
-                                    <a href="{{ url('user/edit/'.$user->id) }}"><button type="button" class="btn btn-blue"><i class="fa-edit"></i></button></a>
-                                    <a href="{{ url('user/delete/'.$user->id) }}"><button type="button" class="btn btn-danger"><i class="fa-trash"></i></button></a>
-                                </td>
-                            </tr>
+                            
+                        @foreach ($codes as $i => $code)
+                           
+                                <tr>
+                                    <td>{{ $code }}</td>
+                                    <td>{{ $status[$i] }}</td>
+                                    
+                                    <td>
+                                            <form action="{{ url('orderDetails/'.$code) }}" role="form" id="form1" method="get" class="validate" enctype="multipart/form-data">
+                                                @csrf
+                                                
+                                                <div class="form-group">
+                                                    <button type="submit" id="submidt_btn" class="btn btn-success custom_c"><i class="fa-file-text-o"></i></button>
+                                                </div>
+
+                                            </form>
+                                       
+                                    </td>
+                                </tr>
+                            
                         @endforeach
+
                         </tbody>
                     @endif
                 </table>

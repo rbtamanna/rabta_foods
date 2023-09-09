@@ -61,7 +61,10 @@ class UserController extends Controller
     public function edit(int $id)
     {
         $user = User::where('id', $id)->first();
-        return view('user.edit', compact('user'));
+        if($user)
+            return view('user.edit', compact('user'));
+        else
+            return view('errors.404');
     }
 
     public function update($id, UserEditRequest $request)

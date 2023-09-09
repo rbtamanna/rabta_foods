@@ -66,8 +66,8 @@
                                 </td>
                                 
                                 <td>
-                                    <a href="{{ url('product/edit/'.$product->id) }}"><button type="button" class="btn btn-blue">Edit</button></a>
-                                    <a href="{{ url('product/delete/'.$product->id) }}"><button type="button" class="btn btn-danger">Delete</button></a>
+                                    <a href="{{ url('product/edit/'.$product->id) }}"><button type="button" class="btn btn-blue"><i class="fa-edit"></i></button></a>
+                                    <a href="{{ url('product/delete/'.$product->id) }}"><button type="button" class="btn btn-danger"><i class="fa-trash"></i></button></a>
                                 </td>
                             </tr>
                         @endforeach
